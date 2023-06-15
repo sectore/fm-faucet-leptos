@@ -1,0 +1,7 @@
+{
+  "COMMENT": "Package.json is needed to install deps of Tailwind only",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "tailwindcss": "^3.2.7"
+  }
+}

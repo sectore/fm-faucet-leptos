@@ -1,0 +1,15 @@
+{
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  "rust-analyzer.cargo.features": ["ssr"],
+  "tailwindCSS.includeLanguages": {
+    "rust": "html",
+    "*.rs": "html"
+  },
+  "files.associations": {
+    "*.rs": "rust"
+  },
+  "css.validate": false
+}
