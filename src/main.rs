@@ -1,13 +1,18 @@
 #[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
+  use dotenv::dotenv;
+
   use axum::{
     routing::{get, post},
     Router,
   };
-  use fm_faucet::{app::*, fallback};
+  use fm_faucet::{component::App, fallback};
   use leptos::*;
   use leptos_axum::{generate_route_list, LeptosRoutes};
+
+  // Load variables from .env file
+  dotenv().ok();
 
   let conf = get_configuration(None).await.unwrap();
   let leptos_options = conf.leptos_options;

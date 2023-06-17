@@ -3,5 +3,7 @@ module.exports = {
   content: {
     files: ["*.html", "./src/**/*.rs"],
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms"),
+  ],
 };
