@@ -12,6 +12,8 @@ axum = { version = "0.6.18", optional = true }
 bitcoincore-rpc = { version = "0.17.0", optional = true }
 console_error_panic_hook = "0.1"
 cfg-if = "1"
+dotenv = "0.15.0"
+image = "0.24.6"
 http = { version = "0.2.9", optional = true }
 leptos = { version = "0.3", default-features = false, features = [
   "serde",
@@ -20,6 +22,7 @@ leptos_meta = { version = "0.3.1", default-features = false }
 leptos_axum = { version = "0.3.1", default-features = false, optional = true }
 leptos_router = { version = "0.3.1", default-features = false }
 log = "0.4.17"
+qrcode-generator = "4.1.8"
 serde = { version = "1", features = ["derive"] }
 simple_logger = "4.0.0"
 tokio = { version = "1.28.2", features = ["full"], optional = true }
