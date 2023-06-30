@@ -10,6 +10,7 @@ async fn main() {
   use fm_faucet::{component::App, fallback};
   use leptos::*;
   use leptos_axum::{generate_route_list, LeptosRoutes};
+  use log::Level;
 
   // Load variables from .env file
   dotenv().ok();
@@ -21,6 +22,7 @@ async fn main() {
   let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
 
   simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
+  let _ = console_log::init_with_level(Level::Debug);
 
   // build our application with a route
   let app = Router::new()

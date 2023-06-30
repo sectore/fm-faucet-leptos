@@ -1,4 +1,5 @@
 use leptos::*;
+use leptos_router::*;
 
 use crate::context::AppContext;
 
@@ -13,8 +14,13 @@ pub fn Join(cx: Scope) -> impl IntoView {
       .unwrap();
 
   view! { cx,
-    <h1 class="text-4xl text-center">"Join Federation"</h1>
-    <div class="flex p-4 w-full justify-center" inner_html=svg></div>
-    <div class="text-base break-words">{connect_str}</div>
+    <div class="h-full w-full">
+      <h1 class="text-4xl text-center">"Join Federation"</h1>
+      <div class="flex p-4 w-full justify-center" inner_html=svg></div>
+      <div class="text-base break-words">{connect_str}</div>
+      <A class="text-xl w-full p-2" href="scan">
+        "Scan"
+      </A>
+    </div>
   }
 }

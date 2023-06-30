@@ -6,8 +6,8 @@ pub(crate) struct AppContext {
 }
 
 pub fn provide_app_context(cx: Scope) {
-  let connect_str =
-    std::env::var("FM_CONNECT_STRING").expect("FM_CONNECT_STRING environment variable not set");
+  // keep it empty by default
+  let connect_str = dotenv::var("FM_CONNECT_STRING").unwrap_or("".to_string());
 
   let context = AppContext { connect_str };
 
