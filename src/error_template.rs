@@ -1,4 +1,4 @@
-use leptos::{view, Errors, For, IntoView, RwSignal, Scope, View};
+use leptos::{view, Errors, For, IntoView, RwSignal, Scope, SignalGet, View};
 
 // A basic function to display errors served by the error boundaries. Feel free to do more complicated things
 // here than just displaying them
@@ -10,7 +10,7 @@ pub fn error_template(cx: Scope, errors: Option<RwSignal<Errors>>) -> View {
   view! { cx,
     <h1>"Errors"</h1>
     <For
-      each=errors
+      each=move || errors.get()
       key=|(key, _)| key.clone()
       view=move |cx, (_, error)| {
           let error_string = error.to_string();

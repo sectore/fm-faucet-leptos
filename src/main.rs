@@ -17,7 +17,7 @@ async fn main() {
 
   let conf = get_configuration(None).await.unwrap();
   let leptos_options = conf.leptos_options;
-  let addr = &leptos_options.site_addr;
+  let addr = leptos_options.site_addr;
   // Generate the list of routes in your Leptos App
   let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
 
@@ -29,8 +29,8 @@ async fn main() {
     .route("/favicon.ico", get(fallback::file_and_error_handler))
     .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
     .fallback(fallback::file_and_error_handler)
-    .with_state(leptos_options.clone())
-    .leptos_routes(leptos_options.clone(), routes, |cx| view! { cx, <App/> });
+    .leptos_routes(&leptos_options, routes, |cx| view! { cx, <App/> })
+    .with_state(leptos_options);
 
   // run our app with hyper
   // `axum::Server` is a re-export of `hyper::Server`
@@ -42,18 +42,4 @@ async fn main() {
 }
 
 #[cfg(not(feature = "ssr"))]
-pub fn main() {
-  // a client-side main function is required for using `trunk serve`
-  // prefer using `cargo leptos serve` instead
-  // to run: `trunk serve --open --features ssg`
-  use fm_faucet::app::*;
-  use leptos::*;
-
-  console_error_panic_hook::set_once();
-
-  leptos::mount_to_body(move |cx| {
-    // note: for testing it may be preferrable to replace this with a
-    // more specific component, although leptos_router should still work
-    view! { cx, <App/> }
-  });
-}
+pub fn main() {}

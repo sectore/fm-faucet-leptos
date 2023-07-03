@@ -61,11 +61,11 @@ where
 
         match process_js_value_with_cast(result) {
           Ok(data) => {
-            set_scanned(Some(format!("data: {:?}", data)));
+            set_scanned.set(Some(format!("data: {:?}", data)));
           }
           Err(e) => {
             let error_message = format!("Error: {:?}", e);
-            set_error(Some(error_message));
+            set_error.set(Some(error_message));
           }
         };
       }) as Box<dyn Fn(JsValue)>);
@@ -99,7 +99,7 @@ where
   };
 
   create_effect(cx, move |_| {
-    if let Some(addr) = scanned() {
+    if let Some(addr) = scanned.get() {
       on_scan(addr.clone());
     }
   });
@@ -108,14 +108,14 @@ where
     <div class="h-full w-full relative">
       <video _ref=video_ref class="w-full h-full fixed object-cover"></video>
       <Show
-        when=move || error().is_some()
+        when=move || error.get().is_some()
         fallback=|_| {
             view! { cx, "" }
         }
       >
         <div class="absolute right-4 top-4 left-4 bg-white rounded-lg text-2xl p-4 text-gray-900 text-center">
           <h1 class="text-4xl text-red-500 font-bold uppercase">"Error"</h1>
-          {error()}
+          {error.get()}
         </div>
       </Show>
       <div class="absolute right-0 left-0 bottom-2 flex flex-col gap-6 p-6 ">
