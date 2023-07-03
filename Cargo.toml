@@ -16,12 +16,10 @@ cfg-if = "1"
 dotenv = "0.15.0"
 image = "0.24.6"
 http = { version = "0.2.9", optional = true }
-leptos = { version = "0.3", default-features = false, features = [
-  "serde",
-] }
-leptos_meta = { version = "0.3.1", default-features = false }
-leptos_axum = { version = "0.3.1", default-features = false, optional = true }
-leptos_router = { version = "0.3.1", default-features = false }
+leptos = { version = "0.4.1", feaures = ["nightly", "csr"] }
+leptos_axum = { version = "0.4.1", optional = true }
+leptos_meta = { version = "0.4.1", feaures = ["nightly", "csr"] }
+leptos_router = { version = "0.4.1", feaures = ["nightly", "csr"] }
 log = "0.4.17"
 qrcode-generator = "4.1.8"
 serde = { version = "1", features = ["derive"] }
@@ -38,11 +36,13 @@ js-sys = "0.3.64"
 rusty-hook = "^0.11.2"
 
 [features]
-default = ["ssr"]
+default = ["csr"]
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
 ssr = [
+  "dep:anyhow",
   "dep:axum",
+  "dep:bitcoincore-rpc",
   "dep:tower",
   "dep:tower-http",
   "dep:tokio",
