@@ -11,6 +11,8 @@ _!!! still WIP !!!_
 just install
 ```
 
+Alternatively, if the `nix` package manager is installed, run `nix develop` to enter a developer environment containing all the necessary dependencies.
+
 ## Run
 
 ```bash
