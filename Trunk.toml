@@ -1,0 +1,8 @@
+[[hooks]]
+stage = "pre_build"
+command = "sh"
+command_arguments = ["-c", "npx tailwindcss -i index.css -o style/output.css"]
+
+[serve]
+# The port to serve on.
+port = 3000

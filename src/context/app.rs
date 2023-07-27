@@ -9,6 +9,8 @@ pub fn provide_app_context(cx: Scope) {
   // keep it empty by default
   let connect_str = dotenv::var("FM_CONNECT_STRING").unwrap_or("".to_string());
 
+  log!("connect_str {}", connect_str);
+
   let context = AppContext { connect_str };
 
   provide_context(cx, context);
