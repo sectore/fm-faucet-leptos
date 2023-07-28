@@ -20,8 +20,8 @@
         fnx = fenix.packages.${system};
         toolchainSpec = {
           channel = "nightly";
-          date = "2023-06-24";
-          sha256 = "sha256-HNVHjhD3Dy7Dj4NwsJZM44AlwBx9j95jRiNdMyVOYOw=";
+          date = "2023-07-28";
+          sha256 = "sha256-c0GN2qV5sJYl6/QoM9IQDByWyzs2rRZ6nBMSTghqkvc=";
         };
         nightly = fnx.toolchainOf toolchainSpec;
         nightly-std = fnx.targets.${target}.toolchainOf toolchainSpec;
@@ -34,7 +34,7 @@
       in
     {
       devShells.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [ fenixToolchain trunk cargo-leptos just tailwindcss pkg-config openssl.dev openssl ];
+        nativeBuildInputs = with pkgs; [ fenixToolchain trunk just tailwindcss pkg-config openssl.dev openssl ];
       };
     });
 }
