@@ -8,9 +8,10 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fedimint.url = "github:fedimint/fedimint";
   };
 
-  outputs = { self, nixpkgs, crane, flake-utils, fenix, ... }:
+  outputs = { self, nixpkgs, crane, flake-utils, fenix, fedimint, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -34,6 +35,7 @@
       in
     {
       devShells.default = pkgs.mkShell {
+        inputsFrom = [ fedimint.devShells."${system}".crossWasm ];
         nativeBuildInputs = with pkgs; [ fenixToolchain trunk just tailwindcss pkg-config openssl.dev openssl ];
       };
     });
