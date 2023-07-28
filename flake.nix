@@ -20,8 +20,8 @@
         fnx = fenix.packages.${system};
         toolchainSpec = {
           channel = "nightly";
-          date = "2023-07-21";
-          sha256 = "sha256-8ve5pIwa7Z6Sr/bL83w27K2OpxzZcFzdiF5YxKup8Y4=";
+          date = "2023-07-28";
+          sha256 = "sha256-c0GN2qV5sJYl6/QoM9IQDByWyzs2rRZ6nBMSTghqkvc=";
         };
         nightly = fnx.toolchainOf toolchainSpec;
         nightly-std = fnx.targets.${target}.toolchainOf toolchainSpec;
