@@ -9,6 +9,7 @@ bitcoincore-rpc = { version = "0.17.0" }
 console_error_panic_hook = "0.1"
 console_log = { version = "1", features = ["color"] }
 dotenv = "0.15.0"
+fedimint-client = { git = "https://github.com/fedimint/fedimint.git", package = "fedimint-client", rev = "02e5d0e7c9f13a7be543ad9477fc6f53e364b8f7" }
 image = "0.24.6"
 leptos = { version = "0.4.6", features = ["nightly", "csr"] }
 leptos_meta = { version = "0.4.6", features = ["nightly", "csr"] }
@@ -23,3 +24,8 @@ js-sys = "0.3.64"
 
 [dev-dependencies]
 rusty-hook = "^0.11.2"
+
+
+[patch.crates-io]
+secp256k1-zkp = { git = "https://github.com/dpc/rust-secp256k1-zkp/", branch = "sanket-pr" }
+ring = { git = "https://github.com/Maan2003/ring", rev = "52a1294a8fc066cc0656911ec22b8358fb763ef1" }
