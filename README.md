@@ -1,4 +1,10 @@
-_!!! still WIP !!!_
+-----------------------------------------------------------------------------------------------
+
+‼️ This repo has been archived in favour of [elsirion/webimint-rs](https://github.com/elsirion/webimint-rs) ‼️ 
+
+-----------------------------------------------------------------------------------------------
+
+_...still WIP..._
 
 # FM Faucet Leptos
 
